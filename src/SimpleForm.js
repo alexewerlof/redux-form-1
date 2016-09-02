@@ -2,7 +2,7 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
 const SimpleForm = (props) => {
-  const { handleSubmit, pristine, reset, submitting } = props
+  const { handleSubmit, pristine, reset, submitting, submitFailed, submitSucceeded } = props
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -54,6 +54,9 @@ const SimpleForm = (props) => {
         </div>
       </div>
       <div>
+        <p>submitting = {submitting ? 'true' : 'false'}</p>
+        <p>submitFailed = {submitFailed? 'true' : 'false'}</p>
+        <p>submitSucceeded = {submitSucceeded? 'true' : 'false'}</p>
         <button type="submit" disabled={pristine || submitting}>Submit</button>
         <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
       </div>
