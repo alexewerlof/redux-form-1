@@ -1,5 +1,6 @@
-import React from 'react'
-import { Field, reduxForm } from 'redux-form'
+import React from 'react';
+import { Field, FieldArray, reduxForm } from 'redux-form';
+import {Children} from './Child.js';
 
 const SimpleForm = (props) => {
   const { handleSubmit, pristine, reset, submitting, submitFailed, submitSucceeded } = props
@@ -29,6 +30,10 @@ const SimpleForm = (props) => {
           <label><Field name="sex" component="input" type="radio" value="male"/> Male</label>
           <label><Field name="sex" component="input" type="radio" value="female"/> Female</label>
         </div>
+      </div>
+      <div>
+        <label>Children</label>
+        <FieldArray name="children" component={Children} />
       </div>
       <div>
         <label>Favorite Color</label>
